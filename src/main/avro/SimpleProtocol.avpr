@@ -1,0 +1,22 @@
+{"namespace": "com.mungolab.protocol",
+ "protocol": "SimpleProtocol",
+
+ "types": [
+    { "name": "ResponseStatus", "type": "enum", "symbols": ["OK", "FAIL"]},
+    { "name": "StatusResponse", "type": "record", "fields": [
+         {"name": "data", "type": "string"},
+         {"name": "status", "type": "StatusResponse"}
+    ]}
+ ],
+
+ "messages": {
+     "process": {
+         "request": [{"name": "operation", "type": "string"}, {"name": "data", "type": "string"}],
+         "response": "ResponseStatus"
+     },
+     "status": {
+         "request": [{"name": "operation", "type": "string"}],
+         "response": "ResponseStatus"
+     }
+ }
+}
